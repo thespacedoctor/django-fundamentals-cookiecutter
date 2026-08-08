@@ -6,6 +6,7 @@ from pathlib import Path
 from django_fundamentals.settings import (
     ACCOUNT_EMAIL_VERIFICATION,
     ACCOUNT_LOGIN_METHODS,
+    ACCOUNT_LOGOUT_REDIRECT_URL,
     ACCOUNT_SIGNUP_FIELDS,
     ACCOUNT_UNIQUE_EMAIL,
     ANONYMOUS_USER_NAME,
@@ -14,6 +15,7 @@ from django_fundamentals.settings import (
     BASE_MIDDLEWARE,
     BASE_REST_FRAMEWORK,
     BASE_TEMPLATE_CONTEXT_PROCESSORS,
+    LOGIN_REDIRECT_URL,
     REST_AUTH,
 )
 
