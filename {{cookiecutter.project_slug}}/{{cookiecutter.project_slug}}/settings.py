@@ -4,12 +4,21 @@ import os
 from pathlib import Path
 
 from django_fundamentals.settings import (
+    ACCOUNT_EMAIL_VERIFICATION,
+    ACCOUNT_LOGIN_METHODS,
+    ACCOUNT_SIGNUP_FIELDS,
+    ACCOUNT_UNIQUE_EMAIL,
+    ANONYMOUS_USER_NAME,
     BASE_AUTHENTICATION_BACKENDS,
     BASE_INSTALLED_APPS,
     BASE_MIDDLEWARE,
     BASE_REST_FRAMEWORK,
     BASE_TEMPLATE_CONTEXT_PROCESSORS,
+    REST_AUTH,
 )
+
+# THE django_fundamentals IMPORTS ABOVE ARE RE-EXPORTED AS-IS: DJANGO PICKS UP ANY
+# UPPERCASE NAME IN THIS MODULE'S NAMESPACE AS A REAL SETTING, IMPORTED OR NOT.
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -78,3 +87,15 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# allauth SENDS VERIFICATION/PASSWORD-RESET EMAILS EVEN IN DEV — DEFAULT TO THE CONSOLE
+# BACKEND SO THAT WORKS WITHOUT AN SMTP SERVER; SET REAL SMTP SETTINGS IN PRODUCTION
+if os.environ.get("DJANGO_ENV") == "production":
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = os.environ.get("EMAIL_HOST", "localhost")
+    EMAIL_PORT = int(os.environ.get("EMAIL_PORT", "587"))
+    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+    EMAIL_USE_TLS = True
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
