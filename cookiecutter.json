@@ -5,7 +5,7 @@
     "author_email": "davidryoung@me.com",
     "github_org": "thespacedoctor",
     "description": "A Django web application built on django-fundamentals.",
-    "django_fundamentals_version": "0.1.0",
+    "django_fundamentals_version": "0.1.2",
     "database_backend": ["sqlite_dev_mariadb_prod", "sqlite_only"],
     "deploy_host": "example-app.example.com",
     "python_version": "3.12",
