@@ -14,9 +14,8 @@ package and is updated afterwards with `pip install -U django-fundamentals`
 Create and activate an isolated conda environment, then install cookiecutter with pip:
 
 ```bash
-conda create -n django-fundamentals-cookiecutter pip -c conda-forge
+conda create -n django-fundamentals-cookiecutter pip cookiecutter -c conda-forge
 conda activate django-fundamentals-cookiecutter
-pip install cookiecutter
 cookiecutter gh:thespacedoctor/django-fundamentals-cookiecutter
 ```
 
