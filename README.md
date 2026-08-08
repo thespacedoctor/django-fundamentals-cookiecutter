@@ -11,7 +11,11 @@ package and is updated afterwards with `pip install -U django-fundamentals`
 
 ## Usage
 
+Create and activate an isolated conda environment, then install cookiecutter with pip:
+
 ```bash
+conda create -n django-fundamentals-cookiecutter pip -c conda-forge
+conda activate django-fundamentals-cookiecutter
 pip install cookiecutter
 cookiecutter gh:thespacedoctor/django-fundamentals-cookiecutter
 ```
@@ -40,7 +44,8 @@ my_project/
 
 ```bash
 cd my_project
-python -m venv .venv && source .venv/bin/activate
+conda create -n my_project pip -c conda-forge
+conda activate my_project
 pip install -e .
 npm install && npm run build:css
 python manage.py migrate

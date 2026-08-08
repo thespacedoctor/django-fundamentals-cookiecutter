@@ -9,7 +9,8 @@ auth/permissions/frontend improvements.
 ## Development
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
+conda create -n {{ cookiecutter.project_slug }} pip -c conda-forge
+conda activate {{ cookiecutter.project_slug }}
 pip install -e ".[dev]"
 npm install
 npm run build:css
