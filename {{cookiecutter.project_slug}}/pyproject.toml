@@ -1,0 +1,29 @@
+[project]
+name = "{{ cookiecutter.project_slug }}"
+version = "0.1.0"
+description = "{{ cookiecutter.description }}"
+authors = [
+    {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"},
+]
+requires-python = ">={{ cookiecutter.python_version }}"
+readme = "README.md"
+license = "{{ cookiecutter.license }}"
+dependencies = [
+    "django-fundamentals>={{ cookiecutter.django_fundamentals_version }}",
+    "django>=5,<6",
+{%- if cookiecutter.database_backend == "sqlite_dev_mariadb_prod" %}
+    "mysqlclient>=2.2",
+{%- endif %}
+    "gunicorn>=23",
+    "mod-wsgi>=5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-django"]
+
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]

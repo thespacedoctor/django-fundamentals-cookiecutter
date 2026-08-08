@@ -1,0 +1,17 @@
+{
+    "project_name": "My Django App",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "author_name": "David R. Young",
+    "author_email": "davidryoung@me.com",
+    "github_org": "thespacedoctor",
+    "description": "A Django web application built on django-fundamentals.",
+    "django_fundamentals_version": "0.1.0",
+    "database_backend": ["sqlite_dev_mariadb_prod", "sqlite_only"],
+    "deploy_host": "example-app.example.com",
+    "python_version": "3.12",
+    "license": "GPL-3.0-or-later",
+    "_copy_without_render": [
+        "deploy/*/roles/**",
+        "*.j2"
+    ]
+}

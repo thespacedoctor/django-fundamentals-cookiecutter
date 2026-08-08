@@ -1,0 +1,2 @@
+[webapp]
+{{ cookiecutter.deploy_host }} ansible_user=deploy
