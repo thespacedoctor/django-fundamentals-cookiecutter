@@ -52,6 +52,11 @@ module.exports = {
         "./apps/**/templates/**/*.html",
         "./{{ cookiecutter.project_slug }}/**/*.py",
         path.join(packageDir, "templates/**/*.html"),
+        // THE PACKAGE'S PYTHON TOO, NOT JUST ITS TEMPLATES: SOME CLASS STRINGS
+        // ARE BUILT IN CODE RATHER THAN WRITTEN IN MARKUP (e.g. THE BUTTON
+        // VARIANTS IN templatetags/django_fundamentals.py). MISSING THESE
+        // SILENTLY DROPS bg-brand/text-brand-fg AND BUTTONS RENDER BARE.
+        path.join(packageDir, "**/*.py"),
     ],
 
     // PROJECT-SPECIFIC OVERRIDES GO HERE. FOR COLOURS AND DIMENSIONS, PREFER
